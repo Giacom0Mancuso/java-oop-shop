@@ -6,8 +6,8 @@ public class Prodotto {
     String nome;
     String descrizione;
     float prezzo;
-
     float iva;
+    public Categoria category;
 
     Prodotto(String nomeInput, String descizioneInput, float prezzoInput, float ivaInput){
         this.codiceProdotto = randomCode(codiceProdotto);
@@ -35,6 +35,14 @@ public class Prodotto {
 
     public float getIva() {
         return iva;
+    }
+
+    public Categoria getCategory() {
+        return this.category;
+    }
+
+    public void setCategory(Categoria category){
+        this.category = category;
     }
 
     public float prices(float prezzo, float iva, boolean yesOrNot){

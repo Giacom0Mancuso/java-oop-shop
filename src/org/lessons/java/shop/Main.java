@@ -22,9 +22,13 @@ public class Main {
             yesONot = false;
         }
         Prodotto userProduct = new Prodotto(nomeInput, descizioneInput, prezzoInput, ivaInput);
-
-        System.out.println(userProduct.prices(prezzoInput, ivaInput, yesONot));
-        System.out.println(userProduct.fullName());
+        System.out.println("categoria");
+        String nomeCategoria = scanner.nextLine();
+        System.out.println("descrizione categoria");
+        String descCategoria = scanner.nextLine();
+        Categoria category = new Categoria(nomeCategoria, descCategoria);
+        userProduct.setCategory(category);
+        System.out.println(userProduct.fullName() + " " + userProduct.prices(prezzoInput, ivaInput, yesONot)+ "€" + " " + userProduct.getCategory().getNomeCaregoria());
 
     }
 }
