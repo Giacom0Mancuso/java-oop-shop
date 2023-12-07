@@ -1,34 +1,12 @@
 package org.lessons.java.shop;
 
-import java.util.Scanner;
+import java.math.BigDecimal;
 
 public class Main {
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("nome");
-        String nomeInput = scanner.nextLine();
-        System.out.println("descizione");
-        String descizioneInput = scanner.nextLine();
-        System.out.println("prezzo");
-        float prezzoInput = Float.parseFloat(scanner.nextLine());
-        System.out.println("iva");
-        float ivaInput = Float.parseFloat(scanner.nextLine());
-        System.out.println("Vuoi sapere il prezzo con l'iva? s/n");
-        String yesOrNot = scanner.nextLine();
-        boolean yesONot = true;
-        if (yesOrNot.equals("s")){
-            yesONot = true;
-        } else if (yesOrNot.equals("n")) {
-            yesONot = false;
-        }
-        Prodotto userProduct = new Prodotto(nomeInput, descizioneInput, prezzoInput, ivaInput);
-        System.out.println("categoria");
-        String nomeCategoria = scanner.nextLine();
-        System.out.println("descrizione categoria");
-        String descCategoria = scanner.nextLine();
-        Categoria category = new Categoria(nomeCategoria, descCategoria);
-        userProduct.setCategory(category);
-        System.out.println(userProduct.fullName() + " " + userProduct.prices(prezzoInput, ivaInput, yesONot)+ "€" + " " + userProduct.getCategory().getNomeCaregoria());
 
+    public static void main(String[] args) {
+        Category freshProduct = new Category("fresh product", "product with a expire date, stays in the refrigerator");
+        Product product = new Product("yogurt", "strawberry yogurt",new BigDecimal("2.55"), new BigDecimal("0.22"), freshProduct);
+        System.out.println(product);
     }
 }
